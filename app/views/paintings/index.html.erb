@@ -1,0 +1,17 @@
+<h1>Jamora Studios Paintings</h1>
+
+<ul id="paintings">
+  <% @paintings.each do |paint| %>
+    <li class="painting">
+      <%= link_to image_tag(paint.source, :class => "paint"), paint %>
+      <%= paint.name %>
+      <nav>
+        <%= link_to "Show", paint %>
+        <%= link_to "Edit", edit_painting_path(paint) %>
+      <%= link_to "Delete", paint, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </nav>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Painting', new_painting_path %>
